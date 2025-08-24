@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formularz kontaktowy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+   <!-- Hamburger -->
+    <button class="menu-toggle" aria-label="Otwórz menu" onclick="toggleMenu()">&#9776;</button>
+
+    <!-- Sidebar -->
+    <nav  id="sidebar" role="navigation" aria-label="Główne menu">
+      <div class="menu-links">
+        <a href="index.html">Strona Główna</a>
+        <a href="oferta.html">Oferta</a>
+        <a href="formularz.html">Formularz</a>
+        <a href="o_mnie.html">O mnie</a>
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+    </nav> 
+
+  <div class="main-formularz">
+    <form id="contact-form">
+      <div class="form-group">
+        <label for="name">Imię i nazwisko</label>
+        <input type="text" id="name" name="user_name" placeholder="Wpisz imię i nazwisko" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-mail *</label>
+        <input type="email" id="email" name="user_email" placeholder="Twój adres e-mail" required>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Wiadomość</label>
+        <textarea id="message" name="message" rows="5" placeholder="Napisz coś..." required></textarea>
+      </div>
+
+      <button class="from-button" type="submit">Wyślij</button>
+    </form>
+  </div>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>  
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const sidebar = document.getElementById('sidebar');
+
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation(); // zatrzymuje "bąbelkowanie", żeby kliknięcie na toggle nie wywołało eventu na dokumencie
+      sidebar.classList.toggle('active');
+    });
+
+    // Kliknięcie gdziekolwiek poza sidebarem i hamburgerem chowa menu
+    document.addEventListener('click', (e) => {
+      const isClickInsideSidebar = sidebar.contains(e.target);
+      const isClickOnToggle = menuToggle.contains(e.target);
+
+      if (!isClickInsideSidebar && !isClickOnToggle) {
+        sidebar.classList.remove('active');
+      }
+    });
+
+    (function() {
+      emailjs.init("service_7mks38i"); // ← Wstaw swój publiczny klucz
+    })();
+
+    document.getElementById("contact-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+        .then(function() {
+          alert("Wiadomość została wysłana!");
+          document.getElementById("contact-form").reset();
+        }, function(error) {
+          alert("błąd: " + JSON.stringify(error));
+        });
+    });
+  </script>
+
+</body>
+</html>

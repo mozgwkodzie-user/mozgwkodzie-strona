@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O mnie</title>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+  <!-- Hamburger -->
+    <button class="menu-toggle" aria-label="Otwórz menu" onclick="toggleMenu()">&#9776;</button>
+
+    <!-- Sidebar -->
+    <nav  id="sidebar" role="navigation" aria-label="Główne menu">
+      <div class="menu-links">
+        <a href="index.html">Strona Główna</a>
+        <a href="oferta.html">Oferta</a>
+        <a href="formularz.html">Formularz</a>
+        <a href="o_mnie.html">O mnie</a>
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+    </nav> 
+  
+  <div class="container">
+    <div class="main-box">
+        <div class="main-inner">
+          <h2>Kim jestem i co robię.</h2>
+
+          <div class="main-content">
+            <div class="main-text">
+              <p>
+                Cześć! Nazywam się Szymon i jestem studentem pierwszego roku informatyki. 
+                Od kilku lat pasjonuję się tworzeniem nowoczesnych stron internetowych — od prostych wizytówek po bardziej rozbudowane projekty. 
+                Zajmuję się tworzeniem stron, które nie tylko dobrze wyglądają, ale też działają — szybko, czytelnie i intuicyjnie. 
+                Każda z nich powstaje z myślą o jednym celu: żebyś był widoczny w sieci i miał przewagę nad konkurencją. 
+              </p>
+            </div>
+
+            <div class="main-image">
+              <img src="img/kim_jestem.jpeg" alt="Twoja wizytówka w internecie" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-box">
+        <div class="main-inner">
+          <h2>Dalczego to robię?</h2>
+
+          <div class="main-content">
+            
+          <div class="main-image">
+              <img src="img/dlaczego_to_robie.jpeg" alt="Twoja wizytówka w internecie" />
+            </div>
+
+            <div class="main-text">
+              <p>
+                Bo wierzę, że własna strona WWW to coś więcej niż kod. 
+                To cyfrowa przestrzeń, która daje kontrolę, buduje zaufanie i otwiera drzwi do nowych klientów. 
+                Tworzę strony z pasji i potrzeby pomagania — wielu osobom trudno odnaleźć się w świecie technologii. 
+                Ja pokazuję, że to może być proste, szybkie i naprawdę skuteczne — szczególnie gdy wspiera mnie sztuczna inteligencja. 
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="main-box">
+        <div class="main-inner">
+          <h2>Jak pracuje.</h2>
+
+          <div class="main-content">
+            
+            <div class="main-text">
+              <p>
+                Zawsze zaczynam od zrozumienia Twoich potrzeb — nie robię „stron dla wszystkich”. 
+                Omawiamy cele, treść, styl, funkcje - wszystko krok po kroku. 
+                Wspieram się AI, by przyspieszyć proces projektowania, przygotować teksty lub dopasować treści. 
+                Masz wgląd w cały proces i możliwość nanoszenia uwag na każdym etapie. 
+                Transparentnie, szybko i bez stresu. Tak, żebyś wiedział, na czym stoisz — i zyskał stronę, której naprawdę potrzebujesz. 
+              </p>
+            </div>
+            
+            <div class="main-image">
+              <img src="img/jak_pracuje.jpeg" alt="Twoja wizytówka w internecie" />
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="tech-section">
+        <h2 class="tech-title">Technologie</h2>
+        <div class="tech-icons">
+          <img src="img/html.png" alt="HTML" class="tech-icon" />
+          <img src="img/css.webp" alt="CSS" class="tech-icon" />
+          <img src="img/js.png" alt="JavaScript" class="tech-icon" />
+        </div>
+      </div>
+
+    </div>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const sidebar = document.getElementById('sidebar');
+
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation(); // zatrzymuje "bąbelkowanie", żeby kliknięcie na toggle nie wywołało eventu na dokumencie
+      sidebar.classList.toggle('active');
+    });
+
+    // Kliknięcie gdziekolwiek poza sidebarem i hamburgerem chowa menu
+    document.addEventListener('click', (e) => {
+      const isClickInsideSidebar = sidebar.contains(e.target);
+      const isClickOnToggle = menuToggle.contains(e.target);
+
+      if (!isClickInsideSidebar && !isClickOnToggle) {
+        sidebar.classList.remove('active');
+      }
+    });
+  </script>
+    
+</body>
+</html>

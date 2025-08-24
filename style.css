@@ -1,0 +1,410 @@
+html, body {
+  background-color: #2a2a2a;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#sidebar{
+  position: fixed;
+  width: 200px;
+  height: 100vh;
+  background-color: #404040;
+  top: 0;
+  z-index: 1000;
+}
+
+#sidebar a{
+  color: white;
+}
+
+.menu-links a{
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  margin: 20px 0;
+}
+
+.menu-toggle{
+  display: none;
+}
+
+@media (max-width: 1024px){
+  .menu-toggle{
+    display: block;
+  }
+
+  #sidebar {
+    transform: translateX(-100%); /* schowane menu */
+    transition: transform 0.3s ease;
+  }
+
+  #sidebar.active{
+    transform: translateX(0);
+
+  }
+
+  .container{
+  margin-left: 0;
+  }
+  .intro-image{
+    max-width: 80%;
+    height: auto;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .main-image img{
+    max-width: 90%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+
+  }
+
+  .main-text{
+    max-width: 600px;
+    font-size: 20px;
+    text-align: center;
+
+  }
+  .main-box{
+    max-width: calc(100% - 50px);
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+
+  .main-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button-container{
+    padding: 15px 0;
+  }
+
+  .offer-button{
+  font-size: 20px;
+  }
+
+  .tiles-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+    
+  }
+
+  .tile{
+    max-width: 100%;
+    height: 200px;
+    background-color: #00e6b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 30px;
+  }
+
+  .pricing{
+    max-width: 100%;
+    height: 60px;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+
+  }
+
+  h1{
+    text-align: center;
+    color: white;
+  }
+
+  .tech-icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .tech-title{
+    color: white;
+    font-size: 20px;
+  }
+
+  .tech-icon{
+    max-height: 100px;
+    object-fit: cover;
+  }
+
+  .tech-section{
+    padding-bottom: 28px;
+  }
+
+  .main-formularz{
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+
+  }
+
+  .main-formularz form {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  width: 700px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.from-button {
+  background-color: #00e6b8;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 10px auto;
+}
+
+ .content-header-box{
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    margin-top: 20px;
+    margin: 0 10px;
+
+  }
+
+  .center-box{
+    text-align: center;
+    width: 400px;
+    height: 250px;
+    background-color: #404040;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 20px;
+  }
+
+  h1{
+    text-align: center;
+  }
+
+}
+
+@media(min-width: 1025px){
+  .container {
+  margin-left: 200px; /* miejsce na sidebar */
+  max-width: calc(100% - 200px); /* opcjonalnie max szerokość, żeby nie rozciągać na bardzo duże ekrany */
+  margin-right: auto;
+  }
+
+  .intro-image{
+    display: block;
+    margin: 0 auto;
+  }
+
+  .main-image img{
+    width: 350px;
+    height: 300px;
+    margin: 20px;
+  }
+
+  .main-text{
+    max-width: calc(100% - 350px);
+    height: auto;
+    padding: 0 20px;
+    
+
+  }
+  .main-box{
+    max-width: calc(100% - 50px);
+    margin: 0 auto;
+    border-radius: 10px;
+    
+  }
+
+  .button-container{
+    padding: 20px 0;
+  }
+
+  .offer-button{
+  font-size: 30px;
+  }
+
+  .tech-icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .tech-title{
+    color: white;
+    font-size: 25px;
+  }
+
+  .tech-icon{
+    width: 200px;
+    height: 200px;
+  }
+
+  .tech-section{
+    padding-bottom: 30px;
+  }
+
+  h1{
+  text-align: center;
+  color: white;
+  }
+
+  .section-wrapper{
+  margin-left: 200px;
+  }
+
+  .tiles-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: 1fr 1fr;
+    gap: 25px;
+    padding: 10px;
+    margin: 10px 25px;
+    
+  }
+
+  .tile{
+    max-width: 100vh;
+    height: 200px;
+    background-color: #00e6b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 30px;
+  }
+
+  .pricing{
+    max-width: 100%;
+    height: 60px;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    margin-top: 30px;
+  }
+
+  .main-formularz{
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    margin-left: 200px;
+  }
+
+  .main-formularz form {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  width: 700px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .from-button {
+    background-color: #00e6b8;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto;
+  }
+  .content-header-box{
+    margin-left: 200px;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    margin-top: 20px;
+
+  }
+
+  .center-box{
+    text-align: center;
+    width: 400px;
+    height: 250px;
+    background-color: #404040;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 20px;
+  }
+
+  .h1-kontakt{
+    margin-left: 200px;
+    text-align: center;
+  }
+
+  h1{
+    text-align: center;
+  }
+}
+
+.main-content{
+  display: flex;
+}
+
+h2{
+  text-align: center;
+}
+
+
+.main-box{
+  background-color: #00e6c2;
+}
+
+.offer-button{
+  display: block;
+  margin: 20px auto;
+  background-color: #00e6b8;
+}
+
+

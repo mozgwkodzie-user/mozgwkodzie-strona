@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oferta</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <!-- Hamburger -->
+    <button class="menu-toggle" aria-label="Otwórz menu" onclick="toggleMenu()">&#9776;</button>
+
+    <!-- Sidebar -->
+    <nav  id="sidebar" role="navigation" aria-label="Główne menu">
+      <div class="menu-links">
+        <a href="index.html">Strona Główna</a>
+        <a href="oferta.html">Oferta</a>
+        <a href="formularz.html">Formularz</a>
+        <a href="o_mnie.html">O mnie</a>
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+    </nav> 
+
+  <div class="section-wrapper">
+    <h1>Oferta</h1>
+
+    <div class="tiles-container">
+      <div class="tile">Wizytówki</div>
+      <div class="tile">SEO</div>
+      <div class="tile">Strony generuję z pomocą AI</div>
+      <div class="tile">Hosting i domena</div>
+    </div>
+
+    <div class="pricing">
+      Cennik: Od 300 do 500 zł
+    </div>
+  </div>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const sidebar = document.getElementById('sidebar');
+
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation(); // zatrzymuje "bąbelkowanie", żeby kliknięcie na toggle nie wywołało eventu na dokumencie
+      sidebar.classList.toggle('active');
+    });
+
+    // Kliknięcie gdziekolwiek poza sidebarem i hamburgerem chowa menu
+    document.addEventListener('click', (e) => {
+      const isClickInsideSidebar = sidebar.contains(e.target);
+      const isClickOnToggle = menuToggle.contains(e.target);
+
+      if (!isClickInsideSidebar && !isClickOnToggle) {
+        sidebar.classList.remove('active');
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strony WWW z pomocą AI</title>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+  <header>
+    <!-- Hamburger -->
+    <button class="menu-toggle" aria-label="Otwórz menu" onclick="toggleMenu()">&#9776;</button>
+
+    <!-- Sidebar -->
+    <nav  id="sidebar" role="navigation" aria-label="Główne menu">
+      <div class="menu-links">
+        <a href="index.html">Strona Główna</a>
+        <a href="oferta.html">Oferta</a>
+        <a href="formularz.html">Formularz</a>
+        <a href="o_mnie.html">O mnie</a>
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+    </nav> 
+    
+  </header>
+
+  <div class="container">
+
+    <img src="img/mozg_w_kodzie.jpg" alt="Mózg w kodzie" class="intro-image" />
+
+    <!-- Sekcja 1 -->
+    <section class="main-box">
+      <div class="main-inner">
+        <h2>Twoja wizytówka w internecie — zrób pierwsze wrażenie, które zostaje.</h2>
+        <div class="main-content">
+          <div class="main-text">
+            <p>
+              W świecie, gdzie każdy szuka informacji online, brak profesjonalnej strony to jak brak wizytówki na spotkaniu biznesowym. 
+              Tworzę strony internetowe, które nie tylko wyglądają świetnie, ale też działają szybko, są responsywne i dopasowane do Twoich potrzeb. 
+              Niezależnie czy jesteś freelancerem, właścicielem firmy czy twórcą — Twoja strona to miejsce, gdzie klienci Cię poznają, ufają i podejmują decyzję. 
+              Zadbaj o to, by ta decyzja była prosta. 
+              Zaprojektuję Twoją cyfrową wizytówkę — taką, która robi robotę. 
+            </p>
+          </div>
+          <div class="main-image">
+            <img src="img/twoja_wizytowka_w_internecie.png" alt="Twoja wizytówka w internecie" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sekcja 2 -->
+    <section class="main-box">
+      <div class="main-inner">
+        <h2>Dlaczego warto mieć stronę WWW?<br>Twoja marka zasługuje na więcej niż profil Facebook.</h2>
+        <div class="main-content">
+          <div class="main-image">
+            <img src="img/dlaczego_warto_mieć_stronę_www.png" alt="Twoja strona WWW" />
+          </div>
+          <div class="main-text">
+            <p>
+              Media społecznościowe to dziś standard. Ale jeśli chcesz być traktowany poważnie — potrzebujesz czegoś więcej. 
+              Strona internetowa to Twoja cyfrowa wizytówka, dostępna 24/7, bez ograniczeń algorytmów. 
+              Na Facebooku jesteś jednym z wielu. Na własnej stronie jesteś u siebie. 
+              Możesz prezentować ofertę, portfolio, opinie klientów, formularz kontaktowy — wszystko w jednym miejscu. 
+              Nie pozwól, żeby Twoja firma wyglądała na tymczasową. 
+              Zbuduj stronę, która mówi: „Jestem tu na serio.” 
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sekcja 3 -->
+    <section class="main-box">
+      <div class="main-inner">
+        <h2>Dziś liczy się widoczność — zacznij od strony WWW.</h2>
+        <div class="main-content">
+          <div class="main-text">
+            <p>
+              Jeśli nie ma Cię w internecie — dla wielu po prostu nie istniejesz. 
+              Strona WWW to pierwszy krok do zbudowania widoczności, wiarygodności i przewagi nad konkurencją. 
+              Nowoczesna strona działa jak handlowiec, który nie śpi:
+            </p>
+            <ul>
+              <li>informuje klientów,</li>
+              <li>buduje zaufanie,</li>
+              <li>generuje zapytania,</li>
+              <li>sprzedaje.</li>
+            </ul>
+            <p>
+              Dzięki wsparciu sztucznej inteligencji tworzę strony szybciej, lepiej i taniej. 
+              Twoja obecność online może zacząć się już dziś. 
+            </p>
+          </div>
+          <div class="main-image">
+            <img src="img/dzis_liczy_sie_widocznosc.jpeg" alt="Widoczność online" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Przycisk -->
+    <div class="button-container">
+      <button onclick="window.location.href='oferta.html'" class="offer-button">Zobacz ofertę</button>
+    </div>
+  </div>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const sidebar = document.getElementById('sidebar');
+
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation(); // zatrzymuje "bąbelkowanie", żeby kliknięcie na toggle nie wywołało eventu na dokumencie
+      sidebar.classList.toggle('active');
+    });
+
+    // Kliknięcie gdziekolwiek poza sidebarem i hamburgerem chowa menu
+    document.addEventListener('click', (e) => {
+      const isClickInsideSidebar = sidebar.contains(e.target);
+      const isClickOnToggle = menuToggle.contains(e.target);
+
+      if (!isClickInsideSidebar && !isClickOnToggle) {
+        sidebar.classList.remove('active');
+      }
+    });
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+   <!-- Hamburger -->
+    <button class="menu-toggle" aria-label="Otwórz menu" onclick="toggleMenu()">&#9776;</button>
+
+    <!-- Sidebar -->
+    <nav  id="sidebar" role="navigation" aria-label="Główne menu">
+      <div class="menu-links">
+        <a href="index.html">Strona Główna</a>
+        <a href="oferta.html">Oferta</a>
+        <a href="formularz.html">Formularz</a>
+        <a href="o_mnie.html">O mnie</a>
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+    </nav> 
+  
+    <h1 class="h1-kontakt">Kontakt</h1>
+    <div class="content-header-box">
+      <div class="center-box">
+        <p>Masz pytania? Napisz do mnie!</p>
+        <p><i class="fas fa-envelope"></i> kontakt@stronyzai.pl</p>
+        <p><i class="fas fa-phone"></i> +48 123 456 789</p>
+    </div>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+      const sidebar = document.getElementById('sidebar');
+
+      menuToggle.addEventListener('click', (e) => {
+        e.stopPropagation(); // zatrzymuje "bąbelkowanie", żeby kliknięcie na toggle nie wywołało eventu na dokumencie
+        sidebar.classList.toggle('active');
+      });
+
+      // Kliknięcie gdziekolwiek poza sidebarem i hamburgerem chowa menu
+    document.addEventListener('click', (e) => {
+      const isClickInsideSidebar = sidebar.contains(e.target);
+      const isClickOnToggle = menuToggle.contains(e.target);
+
+      if (!isClickInsideSidebar && !isClickOnToggle) {
+        sidebar.classList.remove('active');
+      }
+    });
+    </script>
+</body>
+</html>
