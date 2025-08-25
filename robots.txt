@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mozgwkodzie-user.github.io/mozgwkodzie-strona/sitemap.xml
